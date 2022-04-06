@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CowBullWebGame:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>CowBullWebGame</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="CowBullWebGame-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="CowBullWebGame:war exploded" />
+    </root>
+  </artifact>
+</component>
