@@ -3,7 +3,9 @@ package com.cw.CowBullWebGame.UserDataBase;
 import lombok.Getter;
 import lombok.Setter;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     @Setter
     private int id;

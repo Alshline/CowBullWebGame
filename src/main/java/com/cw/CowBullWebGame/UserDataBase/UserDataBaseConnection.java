@@ -13,24 +13,45 @@ public class UserDataBaseConnection {
     static final String USER = "sa";
     static final String PASSWORD = "";
 
-    public void getConnection(){
-        Connection connection = null;
-        Statement statement = null;
+    Connection connection;
+    Statement statement;
 
+    public void getConnection(){
+        this.connection = null;
+        this.statement = null;
         try {
             Class.forName(JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL,USER,PASSWORD);
             statement = connection.createStatement();
-            String sql = "CREATE TABLE IF NOT EXISTS Users (ID INT, NAME VARCHAR, PASSWORD VARCHAR )";
+            String sql = "CREATE TABLE IF NOT EXISTS Users (ID IDENTITY NOT NULL PRIMARY KEY, " +
+                    "NAME VARCHAR NOT NULL, " +
+                    "PASSWORD VARCHAR NOT NULL)";
             statement.execute(sql);
-            statement.close();
-            connection.close();
         } catch (Exception exception){
             exception.printStackTrace();
         }
     }
 
-    public void insertIntoDB(){
+    public void closeConnection(){
+        try{
+            this.statement.close();
+            this.connection.close();
+        } catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+
+    }
+
+    public void insertIntoDB(String username,String password){
+        getConnection();
+
+        String sql = "INSERT INTO Users VALUES "
+
+    }
+
+    public void connectToDB(Connection connection, Statement statement){
+
+
 
     }
 
